@@ -3,6 +3,7 @@ package io.github.soheilmatlobifard.tensor;
 import java.util.Arrays;
 import io.github.soheilmatlobifard.tensor.ops.statisticsOps.StatisticsOps;
 import io.github.soheilmatlobifard.tensor.ops.shapeOps.ShapeOps;
+import io.github.soheilmatlobifard.tensor.ops.mathOps.MathOps;
 
 public class Tensor {
 
@@ -226,7 +227,79 @@ public class Tensor {
         return ShapeOps.flatten(this);
     }
 
+    public Tensor squeeze() {
+        return ShapeOps.squeeze(this);
+    }
+
+    public Tensor squeeze(int dim) {
+        return ShapeOps.squeeze(this, dim);
+    }
+
+    public Tensor unsqueeze(int dim) {
+        return ShapeOps.unsqueeze(this, dim);
+    }
+
+    public Tensor expandDims(int dim) {
+        return ShapeOps.expandDims(this, dim);
+    }
+
     public Tensor transpose(int... newAxis) {
         return ShapeOps.transpose(this, newAxis);
+    }
+
+    public void abs() {
+        MathOps.abs(this);
+    }
+
+    public void sqrt() {
+        MathOps.sqrt(this);
+    }
+
+    public void pow(float exp) {
+        MathOps.pow(this, exp);
+    }
+
+    public void exp() {
+        MathOps.exp(this);
+    }
+
+    public void log() {
+        MathOps.log(this);
+    }
+
+    public void log10() {
+        MathOps.log10(this);
+    }
+
+    public void sin() {
+        MathOps.sin(this);
+    }
+
+    public void cos() {
+        MathOps.cos(this);
+    }
+
+    public void tan() {
+        MathOps.tan(this);
+    }
+
+    public void floor() {
+        MathOps.floor(this);
+    }
+
+    public void ceil() {
+        MathOps.ceil(this);
+    }
+
+    public void round() {
+        MathOps.round(this);
+    }
+
+    public void clip(float min, float max) {
+        MathOps.clip(this, min, max);
+    }
+
+    public void sign() {
+        MathOps.sign(this);
     }
 }
